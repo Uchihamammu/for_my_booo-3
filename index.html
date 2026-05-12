@@ -3,111 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sorry Boo Bear</title>
+    <title>To My Beloved Boo Bear 🧸💝</title>
+    <!-- Importing special romance and elegant fonts from Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background-color: #1a1a2e;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* A soft, warm gradient that feels like comfort */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
             text-align: center;
             overflow: hidden;
             position: relative;
         }
+
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            max-width: 500px;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(15px);
+            max-width: 550px;
+            width: 90%;
             z-index: 10;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: fadeInPage 1.5s ease-in-out;
         }
+
         h1 {
-            color: #ff4d4d;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            /* The romance font for her name */
+            font-family: 'Dancing Script', cursive;
+            color: #dc143c; /* Crimson */
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            margin-top: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
+
+        .apology-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: #444;
+            text-align: justify;
+        }
+
+        .apology-text span {
+            color: #dc143c;
+            font-weight: 500;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            font-weight: 500;
             margin-bottom: 30px;
-            color: #e6e6e6;
+            color: #333;
         }
+
         .btn-container {
-            height: 60px;
+            height: 70px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* This spaces the buttons out perfectly */
+            gap: 25px;
         }
+
         button {
-            padding: 10px 25px;
+            padding: 12px 30px;
             font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.2s;
-            z-index: 20; /* Ensures buttons stay clickable above animations */
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 20;
         }
+
         #yes-btn {
-            background-color: #ff4d4d;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
             color: white;
-            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
         }
+
         #yes-btn:hover {
-            transform: scale(1.1);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.3);
         }
+
         #no-btn {
-            background-color: #555;
-            color: white;
-            /* Removed the absolute positioning here so they don't overlap! */
+            background-color: #f1f1f1;
+            color: #777;
         }
+
         .hidden {
             display: none;
         }
+
         #success-message {
-            background: rgba(255, 77, 77, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 20px;
-            animation: popIn 0.5s ease-out;
+            background: rgba(220, 20, 60, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 25px;
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            animation: popIn 0.6s ease-out;
         }
+
         .success-text {
-            color: #ff4d4d;
-            font-size: 1.5rem;
+            color: #dc143c;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             font-weight: bold;
-            margin-bottom: 10px;
         }
-        .coupon {
-            color: #fff;
+
+        .final-promise {
+            color: #555;
             font-size: 1rem;
-            border: 2px dashed #ff4d4d;
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
+            line-height: 1.6;
         }
-        
-        .floating-item {
+
+        /* --- Decorations --- */
+        .heart {
             position: absolute;
-            bottom: -10vh;
-            font-size: 30px;
+            width: 20px;
+            height: 20px;
+            background: rgba(220, 20, 60, 0.4);
+            transform: rotate(45deg);
+            animation: heartFloat 6s infinite;
+            opacity: 0;
             z-index: 1;
-            opacity: 0.6;
-            animation: floatUp linear infinite;
         }
-        @keyframes floatUp {
-            to {
-                transform: translateY(-115vh) rotate(360deg);
-            }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+            position: absolute;
         }
+
+        .heart::before { top: -10px; left: 0; }
+        .heart::after { top: 0; left: -10px; }
+
+        /* Animations */
+        @keyframes heartFloat {
+            0% { transform: rotate(45deg) translateY(0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: rotate(45deg) translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        @keyframes fadeInPage {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); }
             100% { transform: scale(1); opacity: 1; }
         }
     </style>
@@ -117,14 +179,15 @@
     <!-- Audio Element -->
     <audio id="bg-music" loop>
         <source src="sorry-song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
 
     <div class="container" id="main-content">
-        <h1>I'm So Sorry, Boo Bear 🧸💝</h1>
-        <p>You were feeling low and still wanted to play with me, and I totally messed up by getting mad over a game. You are my real MVP, not the team. I promise my Ult—and my patience—is forever reserved for you from now on. I won't repeat this mistake.</p>
+        <h1>To My Dearest Bhumika 🧸💝</h1>
+        <div class="apology-text">
+            I messed up, Boo Bear. I truly did. I was so incredibly selfish that <span>I didn't see that you were already down</span>, already feeling low. All I saw was my own frustration in the game, and I forgot that <span>you were my light</span>, my comfort, my everything. A victory screen in MLBB means absolutely nothing if it costs me your happiness. I'm sorry for being immature and hurting you when you just wanted to spend time with me. You are worth infinite 'lost matches'. <span>I promise my Ult, and my heart, are forever reserved for you.</span>
+        </div>
         
-        <p><em>Will you forgive me?</em></p>
+        <div class="question">Will you forgive your silly partner?</div>
         
         <div class="btn-container">
             <button id="yes-btn" onclick="forgiveMe()">Yes, I forgive you ❤️</button>
@@ -132,12 +195,12 @@
         </div>
         
         <div id="success-message" class="hidden">
-            <div class="success-text">Thank you Boo Bear! I love you! 🥰</div>
-            <div class="coupon">
-                <strong>🎟️ REDEEMABLE COUPON 🎟️</strong><br>
-                Valid for infinite duo matches where I never complain & 1 free MLBB gift! 🎮💕
+            <div class="success-text">Thank you, My Angel!</div>
+            <div class="final-promise">
+                I love you more than words can say. <br>
+                Thank you for giving me another chance. I won't ever repeat that mistake again. 🥰
             </div>
-            <br><small style="color: #ccc; margin-top: 10px; display: inline-block;">(Music playing...)</small>
+            <br><small style="color: #888; font-size: 0.8rem;">(Our song is playing...)</small>
         </div>
     </div>
 
@@ -146,56 +209,74 @@
         const yesBtn = document.getElementById('yes-btn');
         const audio = document.getElementById('bg-music');
 
-        // Play music on first interaction
+        // Play music on first interaction (required by browsers)
         document.body.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
             }
         }, { once: true });
 
-        // Make the "No" button run away
+        // The "No" button still runs away, but it's smoother
         function moveButton() {
-            // Calculate safe boundaries so the button doesn't run off the screen
             const maxX = window.innerWidth - noBtn.offsetWidth - 20;
             const maxY = window.innerHeight - noBtn.offsetHeight - 20;
             
             const x = Math.max(20, Math.random() * maxX);
             const y = Math.max(20, Math.random() * maxY);
             
-            // Switch to fixed position ONLY when hovered, so it can run away
             noBtn.style.position = 'fixed';
             noBtn.style.left = `${x}px`;
             noBtn.style.top = `${y}px`;
         }
 
-        // Action when she clicks "Yes"
+        // When she forgives you
         function forgiveMe() {
+            // Hide the buttons and the main text
             yesBtn.style.display = 'none';
             noBtn.style.display = 'none';
+            document.querySelector('.apology-text').classList.add('hidden');
+            document.querySelector('.question').classList.add('hidden');
+            
+            // Show the final message
             document.getElementById('success-message').classList.remove('hidden');
+            
+            // Ensure music plays
             audio.play();
+            
+            // Make more hearts appear!
+            for(let i=0; i<15; i++) {
+                setTimeout(createHearts, i * 150);
+            }
         }
 
-        // Create floating background emojis
-        const emojis = ['🧸', '💖', '✨', '🥺', '💝'];
-        
-        function createFloatingItems() {
-            setInterval(() => {
-                const item = document.createElement('div');
-                item.classList.add('floating-item');
-                item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                item.style.left = Math.random() * 100 + 'vw';
-                item.style.animationDuration = Math.random() * 4 + 4 + 's';
-                
-                document.body.appendChild(item);
-                
-                setTimeout(() => {
-                    item.remove();
-                }, 8000);
-            }, 400); 
+        // Create floating background hearts
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            // Random horizontal start position
+            heart.style.left = Math.random() * 100 + 'vw';
+            // Random size variation
+            const size = (Math.random() * 10 + 15) + 'px';
+            heart.style.width = size;
+            heart.style.height = size;
+            // Adjust the ::before and ::after pseudo-elements via CSS variables
+            heart.style.setProperty('--heart-size', size);
+
+            // Set animation duration
+            const duration = Math.random() * 3 + 4 + 's'; // 4s to 7s
+            heart.style.animationDuration = duration;
+            
+            document.body.appendChild(heart);
+            
+            // Cleanup
+            setTimeout(() => {
+                heart.remove();
+            }, parseInt(duration) * 1000);
         }
 
-        createFloatingItems();
+        // Start background heart animation
+        setInterval(createHearts, 600); // New heart every 0.6 seconds
     </script>
 </body>
 </html>
